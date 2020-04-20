@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dashboard Coronavirus</title>
+  <title>Coronavirus</title>
 
   <!-- Intégration icône du site -->
   <link rel="icon" type="image/png" href="./assets/img/logo16.png" />
@@ -21,6 +21,15 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/header.css">
 
+  <!-- Chart js-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+
+
   <!-- Intégrtion js personnalisé -->
   <script src="assets/js/scripts.js"></script>
 
@@ -30,26 +39,32 @@
 
 </head>
 
-<body> 
+<body>
 
+    <!-- Menu qui s'ouvre et se ferme en fonction de "ouvrirFermerMenu()" -->
 	<div id="sideNavigation" class="sidenav">
-	  <a href="./actu.php"><i class="fa fa-newspaper-o"></i> Actualités</a>
-	  <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
-      <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
-      <hr>
-      <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
-      <button class="btn_rechercher"><i class="fa fa-search"></i></button>
+        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
+        <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
+        <hr>
+        <select class="barre_rechercher">
+            </option value="ANGLAIS">FRANCAIS</option>
+        </select>
 	</div>
 
+    <!-- Header principal -->
 	<nav class="topnav">
+        <!-- Menu normal pour les grands écrans -->
         <div class="menu_normal">
-            <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
-            <button class="btn_rechercher"><i class="fa fa-search"></i></button>
+            <select class="barre_rechercher">
+                <option value="ANGLAIS">FRANCAIS</option>
+            </select>
             <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
-            <a href="./actu.php"><i class="fa fa-newspaper-o"></i> Actualités</a>
+            <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
             <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
          </div>
 
+        <!-- Menu normal pour les écrans portables -->
         <div class="menu_burger">
             <a href="#" onclick="ouvrirFermerMenu()">
                 <svg width="30" height="30" id="icoOpen">
@@ -59,7 +74,6 @@
                 </svg>
             </a>
         </div>
-       
 	</nav>
 
 <div id="divFermeMenu" class="divFermeMenu" onclick="ouvrirFermerMenu()"></div>

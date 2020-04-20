@@ -97,21 +97,16 @@ nav, .input-group-prepend span, .login_btn, .post_header {
   height:40px;
   line-height: 40px;
   padding:5px;
-  border-radius: 10px;
+  border-radius: 3px;
   border: 0;
-  margin-left:20px;
-  width:150px;
+  margin-top:7px;
+  margin-right:20px;
+  width:200px;
+  float: right;
 }
 
 .barre_rechercher:focus {
   outline: none;
-}
-
-.btn_rechercher {
-  background-color: rgba(0, 0, 0, 0);
-  border: 0;
-  border-right: 1px solid white;
-  color: white;
 }
 
 .menu_burger {
@@ -122,10 +117,6 @@ nav, .input-group-prepend span, .login_btn, .post_header {
 @media screen and (max-width: 950px) {
   .menu_normal {
     display: none;
-  }
-
-  .btn_rechercher {
-    border-right:0;
   }
 
   .menu_burger {
@@ -150,6 +141,17 @@ nav, .input-group-prepend span, .login_btn, .post_header {
       color: red;
   }
 }
+
+#search{
+    background: transparent;
+    border: none;
+}
+
+#search::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+}
+
 
 /* Header version Smartphone */
 @media screen and (max-height: 450px) {
