@@ -51,7 +51,7 @@ array_multisort($id, SORT_DESC, $Countries);
         </div>
         <div class="row">
             <div class="col">
-                <table class="table table-striped">
+                <table class="table table-striped text-center">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
