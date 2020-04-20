@@ -19,7 +19,7 @@ curl_setopt_array($curl, array(
 ));
 
 $arrRes = json_decode(curl_exec($curl), true);
-$SlugPays =  $_GET['pays'];
+$SlugPays =  $_GET['slug'];
 $Countries = $arrRes['Countries'];
 
 foreach ($Countries as $Country){
