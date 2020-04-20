@@ -33,7 +33,7 @@
 <body> 
 
 	<div id="sideNavigation" class="sidenav">
-	  <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
+	  <a href="./actu.php"><i class="fa fa-newspaper-o"></i> Actualités</a>
 	  <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
 	  <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
 	</div>
