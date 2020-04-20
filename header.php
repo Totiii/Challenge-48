@@ -43,17 +43,31 @@
 	<div id="sideNavigation" class="sidenav">
 	  <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
 	  <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
-	  <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
+      <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
+      <hr>
+      <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
+      <button class="btn_rechercher"><i class="fa fa-search"></i></button>
 	</div>
 
 	<nav class="topnav">
-	  <a href="#" onclick="ouvrirFermerMenu()">
-	    <svg width="30" height="30" id="icoOpen">
-	        <path d="M0,5 30,5" stroke="#FFF" stroke-width="5"/>
-	        <path d="M0,14 30,14" stroke="#FFF" stroke-width="5"/>
-	        <path d="M0,23 30,23" stroke="#FFF" stroke-width="5"/>
-	    </svg>
-	  </a>
+        <div class="menu_normal">
+            <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
+            <button class="btn_rechercher"><i class="fa fa-search"></i></button>
+            <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
+            <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+            <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
+         </div>
+
+        <div class="menu_burger">
+            <a href="#" onclick="ouvrirFermerMenu()">
+                <svg width="30" height="30" id="icoOpen">
+                    <path d="M0,5 30,5" stroke="#FFF" stroke-width="5"/>
+                    <path d="M0,14 30,14" stroke="#FFF" stroke-width="5"/>
+                    <path d="M0,23 30,23" stroke="#FFF" stroke-width="5"/>
+                </svg>
+            </a>
+        </div>
+       
 	</nav>
 
 <div id="divFermeMenu" class="divFermeMenu" onclick="ouvrirFermerMenu()"></div>
