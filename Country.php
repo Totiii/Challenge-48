@@ -1,12 +1,9 @@
 <?php
+include 'function.php';
+
 include 'header.php';
 
-function url_encode($string){
-    $encode = str_replace(' ', '%20', $string);
-    $encode = str_replace('(', '%28', $encode);
-    $encode = str_replace(')', '%29', $encode);
-    return $encode;
-}
+
 $curl = curl_init();
 $curl2 = curl_init();
 $curl3 = curl_init();
@@ -109,7 +106,14 @@ foreach ($arrRes3 as $key => $row){
     }
 }
 
-include 'footer.php';
+$actu_contry = $actualCountryGlobalStats['Country'];
+$actu_contry_code = $actualCountryGlobalStats["CountryCode"];
+
+
+$res_contry_info = curl_url("https://restcountries.eu/rest/v2/alpha/".$actu_contry_code);
+
+$contry_french_name = $res_contry_info->translations->fr;
+$contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
 
 ?>
 
@@ -118,7 +122,7 @@ include 'footer.php';
 <div class="container mt-3">
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
-            <h1 class="display-4"><b>Situation Globale : <?php print_r($actualCountryGlobalStats['Country']); ?></b></h1>
+            <h1 class="display-4"><b>Situation Globale : <?= $contry_french_name ?></b></h1>
             <small>Dernière mise a jour : <?php print_r($actualCountryGlobalStats['Date']); ?></small>
             <p class="lead mt-3">Nombres de déces: <?php print_r($actualCountryGlobalStats['TotalDeaths']); ?> personnes</p>
             <hr class="my-4">
@@ -132,11 +136,11 @@ include 'footer.php';
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h5 class="text-center">Evolution du nombres de cas : <?php print_r($actualCountryGlobalStats["Country"]); ?></h5>
+            <h5 class="text-center">Evolution du nombres de cas : <?= $contry_french_name ?></h5>
             <canvas id="ChartCase" class="mt-1"></canvas>
         </div>
         <div class="col mb-5">
-            <h5 class="text-center">Dernieres statistiques : <?php print_r($actualCountryGlobalStats["Country"]); ?></h5>
+            <h5 class="text-center">Dernieres statistiques : <?= $contry_french_name ?></h5>
             <canvas id="LatestStats" class="mt-1"></canvas>
         </div>
     </div>
@@ -144,20 +148,6 @@ include 'footer.php';
 
 
 <?php
-
-echo Locale::getDisplayRegion('IT', 'fr');
-
-$actu_contry = url_encode($actualCountryGlobalStats['Country']);
-
-$url_contry_info = "https://restcountries.eu/rest/v2/name/".$actu_contry;
-$curl_contry_info = curl_init();
-curl_setopt($curl_contry_info, CURLOPT_URL, $url_contry_info);
-curl_setopt($curl_contry_info, CURLOPT_RETURNTRANSFER, 1);
-$res_contry_info = json_decode(curl_exec($curl_contry_info));
-curl_close($curl_contry_info);
-var_dump( $res_contry_info);
-$contry_french_name = $res_contry_info[0]->translations->fr;
-$contry_french_name_urlencoded = url_encode($res_contry_info[0]->translations->fr);
 
     $url_actu_contry = "http://newsapi.org/v2/everything?apiKey=5a358c61c5134605a6a9e3169d9f5abb&sortBy=publishedAt&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$actu_contry;
     $url_actu_contry_fr = "http://newsapi.org/v2/everything?apiKey=5a358c61c5134605a6a9e3169d9f5abb&sortBy=publishedAt&language=fr&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$contry_french_name_urlencoded;
@@ -169,7 +159,7 @@ $contry_french_name_urlencoded = url_encode($res_contry_info[0]->translations->f
     curl_close($curl_actu_contry_fr);
     $nb_result_fr = $res_actu_contry_fr->totalResults;
     $nb_result_all_lg = $nb_result_fr;
-var_dump($res_actu_contry_fr);
+    var_dump($res_actu_contry_fr);
     if($nb_result_fr <= 3){
         //aucun resutat fr
         $curl_actu_contry = curl_init();
@@ -285,7 +275,7 @@ var_dump($res_actu_contry_fr);
         data: {
             labels: otherDates,
             datasets: [{
-                label: 'Nombre de morts en <?php print_r($actualCountryGlobalStats["Country"]); ?> ',
+                label: 'Nombre de morts en <?= $contry_french_name ?> ',
                 data: deaths,
                 fill: false,
                 borderColor: [
@@ -294,7 +284,7 @@ var_dump($res_actu_contry_fr);
                 borderWidth: 1
             },
                 {
-                    label: 'Nombre de soignées en <?php print_r($actualCountryGlobalStats["Country"]); ?> ',
+                    label: 'Nombre de soignées en <?= $contry_french_name ?> ',
                     data: recovered,
                     fill: false,
                     borderColor: [
@@ -303,7 +293,7 @@ var_dump($res_actu_contry_fr);
                     borderWidth: 1
                 },
                 {
-                    label: 'Nombre de cas confirmer en <?php print_r($actualCountryGlobalStats["Country"]); ?> ',
+                    label: 'Nombre de cas confirmer en <?= $contry_french_name ?> ',
                     data: confirmed,
                     fill: false,
                     borderColor: [
