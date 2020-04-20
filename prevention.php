@@ -30,6 +30,6 @@
 </div>
 
 <div class="attestation mt-3 text-center">
-    <h5>Pour génération une attestation en ligne, cliquez <a href="https://media.interieur.gouv.fr/deplacement-covid-19/" target="_blank" style="color: blue">ici !</a></h5>
+    <h5>Pour générer une attestation en ligne, cliquez <a href="https://media.interieur.gouv.fr/deplacement-covid-19/" target="_blank" style="color: blue">ici !</a></h5>
     <h5>Pour télécharger une attestation au format PDF, cliquez <a href="https://www.interieur.gouv.fr/attestation_de_deplacement_derogatoire" target="_blank" style="color: blue">ici !</a></h5>
 </div>
