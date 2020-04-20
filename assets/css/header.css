@@ -15,10 +15,6 @@ nav, .input-group-prepend span, .login_btn, .post_header {
 	background-color: rgba(255, 255, 255, 0.3);
 }
 
-.topnav a:hover {
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
 .iconHeader {
 	width:150px;
 	margin-left:3%;
@@ -65,12 +61,7 @@ nav, .input-group-prepend span, .login_btn, .post_header {
   display: block;
   transition: 0.3s;
 }
- 
-/* Liens du menu HOVER */
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
- 
+  
 /* Bouton fermeture */
 .sidenav .closebtn {
     position: absolute;
@@ -81,27 +72,83 @@ nav, .input-group-prepend span, .login_btn, .post_header {
     border-radius: 0 0 0 10px;
 }
  
-/* Menu icon Burger */
+/* Menu normal pour grands écrans */
 .topnav {
     overflow: hidden;
 }
- 
-.topnav a {
-    float: right;
+
+.menu_normal {
+  display: block;
+}
+
+.menu_normal a {
+  height:55px;
+  line-height: 55px;
+  padding:20px;
+  color:white;
+  font-size: 18px;
+}
+
+.menu_normal a:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.barre_rechercher {
+  height:40px;
+  line-height: 40px;
+  padding:5px;
+  border-radius: 10px;
+  border: 0;
+  margin-left:20px;
+  width:150px;
+}
+
+.barre_rechercher:focus {
+  outline: none;
+}
+
+.btn_rechercher {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  border-right: 1px solid white;
+  color: white;
+}
+
+.menu_burger {
+  display: none;
+}
+
+/* Menu icon Burger */
+@media screen and (max-width: 950px) {
+  .menu_normal {
+    display: none;
+  }
+
+  .btn_rechercher {
+    border-right:0;
+  }
+
+  .menu_burger {
     display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-}
- 
-.topnav a:hover {
-    height: 55px;
-}
- 
-.topnav a.active {
-    color: red;
+  }
+
+  .menu_burger a {
+      float: right;
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-size: 17px;
+  }
+  
+  .menu_burger a:hover {
+      height: 55px;
+  }
+  
+  .menu_burger a.active {
+      color: red;
+  }
 }
 
 /* Header version Smartphone */
