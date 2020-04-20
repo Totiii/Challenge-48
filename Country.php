@@ -109,11 +109,11 @@ foreach ($arrRes3 as $key => $row){
 $actu_contry = $actualCountryGlobalStats['Country'];
 $actu_contry_code = $actualCountryGlobalStats["CountryCode"];
 
-
 $res_contry_info = curl_url("https://restcountries.eu/rest/v2/alpha/".$actu_contry_code);
 
 $contry_french_name = $res_contry_info->translations->fr;
 $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
+$contry_name_urlencoded = url_encode($res_contry_info->nativeName);
 
 ?>
 
@@ -122,7 +122,7 @@ $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
 <div class="container mt-3">
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
-            <h1 class="display-4"><b>Situation Globale : <?= $contry_french_name ?></b></h1>
+            <h1 class="display-4"><b>Situation Globale : <?= $contry_french_name ?></b> <img class="img-fluid" width="65" src="<?= $res_contry_info->flag ?>" alt="Drapeau"></h1>
             <small>Dernière mise a jour : <?php print_r($actualCountryGlobalStats['Date']); ?></small>
             <p class="lead mt-3">Nombres de déces: <?php print_r(number_format($actualCountryGlobalStats['TotalDeaths'],0,".",",")); ?> personnes</p>
             <hr class="my-4">
@@ -149,30 +149,22 @@ $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
 
 <?php
 
-    $url_actu_contry = "http://newsapi.org/v2/everything?apiKey=5a358c61c5134605a6a9e3169d9f5abb&sortBy=publishedAt&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$actu_contry;
-    $url_actu_contry_fr = "http://newsapi.org/v2/everything?apiKey=5a358c61c5134605a6a9e3169d9f5abb&sortBy=publishedAt&language=fr&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$contry_french_name_urlencoded;
 
-    $curl_actu_contry_fr = curl_init();
-    curl_setopt($curl_actu_contry_fr, CURLOPT_URL, $url_actu_contry_fr);
-    curl_setopt($curl_actu_contry_fr, CURLOPT_RETURNTRANSFER, 1);
-    $res_actu_contry_fr = json_decode(curl_exec($curl_actu_contry_fr));
-    curl_close($curl_actu_contry_fr);
-    $nb_result_fr = $res_actu_contry_fr->totalResults;
+    $actu_country_fr = curl_url("http://newsapi.org/v2/everything?apiKey=".$apikey."&pageSize=15&sortBy=publishedAt&language=fr&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$contry_french_name_urlencoded);
+
+
+    $nb_result_fr = count($actu_country_fr->articles);
     $nb_result_all_lg = $nb_result_fr;
-    var_dump($res_actu_contry_fr);
-    if($nb_result_fr <= 3){
+    //var_dump($actu_country_fr);
+    if($nb_result_fr <= 10){
         //aucun resutat fr
-        $curl_actu_contry = curl_init();
-        curl_setopt($curl_actu_contry, CURLOPT_URL, $url_actu_contry);
-        curl_setopt($curl_actu_contry, CURLOPT_RETURNTRANSFER, 1);
-        $res_actu_contry = json_decode(curl_exec($curl_actu_contry));
-        curl_close($curl_actu_contry);
-
-        $nb_result_all_lg += $res_actu_contry->totalResults;
-
+        $nb_to_search = 15 - $nb_result_fr;
+        $actu_country_alllang = curl_url("http://newsapi.org/v2/everything?apiKey=".$apikey."&pageSize=".$nb_to_search."&sortBy=publishedAt&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$contry_name_urlencoded);
+        $nb_result_all_lg += $actu_country_alllang->totalResults;
+        //var_dump($actu_country_alllang);
     }
 
-    var_dump($res_actu_contry);
+
 
 ?>
 
@@ -181,6 +173,24 @@ $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
     <?php
 
         if($nb_result_all_lg > 0){
+            if($nb_result_fr > 0 ){
+                echo $nb_result_fr;
+
+                foreach ($actu_country_fr->articles as $news){
+                    echo $news->title;
+                }
+
+            }else{
+                ?>
+                <div class="alert alert-primary" role="alert">
+                    Aucun article de presse en français à propos du coronavirus en rapport avec ce pays n'a été trouvé.
+                    <a href="https://google.fr/search?q=coronavirus%20en%20<?= $contry_french_name ?>" target="_blank">Rechercher sur Google</a>
+                </div>
+                <?php
+            }
+            foreach ($actu_country_alllang->articles as $news){
+                echo $news->title;
+            }
 
 
 
@@ -188,7 +198,7 @@ $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
             ?>
     <div class="alert alert-primary" role="alert">
         Aucun article de presse à propos du coronavirus en rapport avec ce pays n'a été trouvé.
-        <a href="https://google.fr/search?q=coronavirus%20en%20<?= $actu_contry ?>" target="_blank">Rechercher sur Google</a>
+        <a href="https://google.fr/search?q=coronavirus%20en%20<?= $contry_french_name ?>" target="_blank">Rechercher sur Google</a>
     </div>
     <?php
         }
