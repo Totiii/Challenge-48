@@ -84,7 +84,8 @@ array_multisort($id, SORT_DESC, $Countries);
                             <td><?php  print_r(number_format($Countries[$i]['TotalRecovered'],0,".",",")) ?></td>
                         </tr>
                     <?php } ?>
-                    </tbody>
+                </tbody>
+                <?php } ?>
                 </table>
             </div>
         </div>
