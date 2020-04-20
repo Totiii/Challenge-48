@@ -25,3 +25,7 @@ function goSearchMob() {
     var slug = document.getElementById("countrySelectMob").value;
     window.location.href = "./Country.php?slug=" + slug;
 }
+
+function numberWithSpaces(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}
