@@ -104,7 +104,6 @@ foreach ($arrRes3 as $key => $row){
 }
 
 include 'footer.php';
-
 ?>
 
 <body>
@@ -113,11 +112,11 @@ include 'footer.php';
         <div class="container text-center">
             <h1 class="display-4"><b>Situation Globale : <?php print_r($actualCountryGlobalStats['Country']); ?></b></h1>
             <small>Dernière mise a jour : <?php print_r($actualCountryGlobalStats['Date']); ?></small>
-            <p class="lead mt-3">Nombres de déces: <?php print_r($actualCountryGlobalStats['TotalDeaths']); ?> personnes</p>
+            <p class="lead mt-3">Nombres de déces: <?php print_r(number_format($actualCountryGlobalStats['TotalDeaths'],0,".",",")); ?> personnes</p>
             <hr class="my-4">
-            <p class="lead">Nombres de Cas: <?php print_r($actualCountryGlobalStats['TotalConfirmed']); ?> personnes</p>
+            <p class="lead">Nombres de Cas: <?php print_r(number_format($actualCountryGlobalStats['TotalConfirmed'],0,".",",")); ?> personnes</p>
             <hr class="my-4">
-            <p class="lead">Nombres de patients guéris: <?php print_r($actualCountryGlobalStats['TotalRecovered']); ?> personnes</p>
+            <p class="lead">Nombres de patients guéris: <?php print_r(number_format($actualCountryGlobalStats['TotalRecovered'],0,".",",")); ?> personnes</p>
             <hr class="my-4">
         </div>
     </div>

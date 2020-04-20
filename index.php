@@ -20,10 +20,6 @@ curl_setopt_array($curl, array(
 
 $arrRes = json_decode(curl_exec($curl), true);
 
-$totalDeath = $arrRes['Global']['TotalDeaths'];
-$totalCases = $arrRes['Global']['TotalConfirmed'];
-$totalRecovered = $arrRes['Global']['TotalRecovered'];
-
 $Countries = $arrRes['Countries'];
 
 $id = array();
@@ -34,6 +30,7 @@ array_multisort($id, SORT_DESC, $Countries);
 
 ?>
 
+<<<<<<< HEAD
 <div class="container mt-5">
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
@@ -44,6 +41,20 @@ array_multisort($id, SORT_DESC, $Countries);
             <hr class="my-4">
             <p class="lead">Nombre de patients guéris: <?php print_r($totalRecovered); ?> personnes</p>
             <hr class="my-4">
+=======
+<body>
+    <div class="container mt-5">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container text-center">
+                <h1 class="display-4"><b>Situation globale</b></h1>
+                <p class="lead mt-3">Nombre de décès: <?php print_r(number_format($arrRes['Global']['TotalDeaths'],0,".",",")); ?> personnes</p>
+                <hr class="my-4">
+                <p class="lead">Nombre de Cas: <?php print_r(number_format($arrRes['Global']['TotalConfirmed'],0,".",",")); ?> personnes</p>
+                <hr class="my-4">
+                <p class="lead">Nombre de patients guéris: <?php print_r(number_format($arrRes['Global']['TotalRecovered'],0,".",",")); ?> personnes</p>
+                <hr class="my-4">
+            </div>
+>>>>>>> 7ca3d39018b57436e339f19e4d52bc9aff1538ba
         </div>
     </div>
 </div>
@@ -75,9 +86,26 @@ array_multisort($id, SORT_DESC, $Countries);
                         <td><?php  print_r($Countries[$i]['TotalDeaths']) ?></td>
                         <td><?php  print_r($Countries[$i]['TotalRecovered']) ?></td>
                     </tr>
+<<<<<<< HEAD
                 <?php } ?>
                 </tbody>
             </table>
+=======
+                    </thead>
+                    <tbody>
+                    <?php for ($i=0; $i < 20; $i++){ ?>
+                        <tr>
+                            <th scope="row"><?php  print_r($i + 1) ?></th>
+                            <td><?php  print_r($Countries[$i]['Country']) ?></td>
+                            <td><?php  print_r(number_format($Countries[$i]['TotalConfirmed'],0,".",",")) ?></td>
+                            <td><?php  print_r(number_format($Countries[$i]['TotalDeaths'],0,".",",")) ?></td>
+                            <td><?php  print_r(number_format($Countries[$i]['TotalRecovered'],0,".",",")) ?></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+>>>>>>> 7ca3d39018b57436e339f19e4d52bc9aff1538ba
         </div>
     </div>
 </div>
