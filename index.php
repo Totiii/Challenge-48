@@ -40,12 +40,12 @@ include 'footer.php';
     <div class="container mt-5">
         <div class="jumbotron jumbotron-fluid">
             <div class="container text-center">
-                <h1 class="display-4"><b>Situation Globale</b></h1>
-                <p class="lead mt-3">Nombres de déces: <?php print_r($totalDeath); ?> personnes</p>
+                <h1 class="display-4"><b>Situation globale</b></h1>
+                <p class="lead mt-3">Nombre de décès: <?php print_r($totalDeath); ?> personnes</p>
                 <hr class="my-4">
-                <p class="lead">Nombres de Cas: <?php print_r($totalCases); ?> personnes</p>
+                <p class="lead">Nombre de Cas: <?php print_r($totalCases); ?> personnes</p>
                 <hr class="my-4">
-                <p class="lead">Nombres de patients guéris: <?php print_r($totalRecovered); ?> personnes</p>
+                <p class="lead">Nombre de patients guéris: <?php print_r($totalRecovered); ?> personnes</p>
                 <hr class="my-4">
             </div>
         </div>
@@ -64,9 +64,9 @@ include 'footer.php';
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Pays</th>
-                        <th scope="col">Nombres de Cas</th>
+                        <th scope="col">Nombre de cas contaminés</th>
                         <th scope="col">Nombre de morts</th>
-                        <th scope="col">Nombre de gueris</th>
+                        <th scope="col">Nombre de guéris</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -85,7 +85,3 @@ include 'footer.php';
         </div>
     </div>
 </body>
-
-<script>
-
-</script>
