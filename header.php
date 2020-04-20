@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dashboard Coronavirus</title>
+  <title>Coronavirus</title>
 
   <!-- Intégration icône du site -->
   <link rel="icon" type="image/png" href="./assets/img/logo16.png" />
@@ -30,7 +30,7 @@
 
 </head>
 
-<body> 
+<body>
 
 	<div id="sideNavigation" class="sidenav">
 	  <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
@@ -39,13 +39,13 @@
 	</div>
 
 	<nav class="topnav">
-	  <a href="#" onclick="ouvrirFermerMenu()">
-	    <svg width="30" height="30" id="icoOpen">
-	        <path d="M0,5 30,5" stroke="#FFF" stroke-width="5"/>
-	        <path d="M0,14 30,14" stroke="#FFF" stroke-width="5"/>
-	        <path d="M0,23 30,23" stroke="#FFF" stroke-width="5"/>
-	    </svg>
-	  </a>
+	    <a href="#" onclick="ouvrirFermerMenu()">
+	        <svg width="30" height="30" id="icoOpen">
+	            <path d="M0,5 30,5" stroke="#FFF" stroke-width="5"/>
+	            <path d="M0,14 30,14" stroke="#FFF" stroke-width="5"/>
+	            <path d="M0,23 30,23" stroke="#FFF" stroke-width="5"/>
+	        </svg>
+	    </a>
 	</nav>
 
 <div id="divFermeMenu" class="divFermeMenu" onclick="ouvrirFermerMenu()"></div>
