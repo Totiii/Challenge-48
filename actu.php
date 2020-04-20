@@ -4,14 +4,13 @@ include 'function.php';
 include 'header.php';
 
 
-
-
 $live_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=health&pageSize=6&apiKey=5a358c61c5134605a6a9e3169d9f5abb&query=coronavirus");
 $economic_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=business&apiKey=5a358c61c5134605a6a9e3169d9f5abb&pageSize=5&q=coronavirus");
 $sport_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=5a358c61c5134605a6a9e3169d9f5abb&pageSize=5&q=coronavirus");
 $technology_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=technology&apiKey=5a358c61c5134605a6a9e3169d9f5abb&pageSize=5&q=covid");
 
 $untrusted_sources = array("Jeanmarcmorandini.com");
+
 
 
 ?>

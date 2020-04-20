@@ -1,4 +1,5 @@
 <?php
+
 include 'header.php';
 
 $curl = curl_init();
@@ -21,6 +22,10 @@ curl_setopt_array($curl, array(
 $arrRes = json_decode(curl_exec($curl), true);
 
 $Countries = $arrRes['Countries'];
+
+if(sizeof($Countries) == 0){
+    die("L'API a rencontré une erreur, réésayer dans quelques instants");
+}
 
 $id = array();
 foreach ($Countries as $key => $row){
@@ -65,7 +70,7 @@ array_multisort($id, SORT_DESC, $Countries);
                         <?php for ($i=0; $i < 20; $i++){ ?>
                             <tr>
                                 <th scope="row"><?php  print_r($i + 1) ?></th>
-                                <td><?php  print_r($Countries[$i]['Country']) ?></td>
+                                <td><?php  print_r(code_to_country($Countries[$i]['Country'])) ?></td>
                                 <td><?php  print_r(number_format($Countries[$i]['TotalConfirmed'],0,".",",")) ?></td>
                                 <td><?php  print_r(number_format($Countries[$i]['TotalDeaths'],0,".",",")) ?></td>
                                 <td><?php  print_r(number_format($Countries[$i]['TotalRecovered'],0,".",",")) ?></td>

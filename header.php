@@ -43,6 +43,10 @@
 
     <?php
 
+        error_reporting(E_ERROR | E_PARSE);
+
+        include 'country-translate.php';
+
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -60,7 +64,8 @@
         $arrRes = json_decode(curl_exec($curl), true);
 
         $country = array();
-        foreach ($arrRes as $key => $row){
+        foreach ($arrRes as $key => &$row){
+            $row['Country'] = code_to_country($row['Country']);
             $country[$key] = $row['Country'];
         }
         array_multisort($country, SORT_ASC, $arrRes);
