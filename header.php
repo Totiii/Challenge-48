@@ -37,9 +37,47 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <script>
+        function goSearch() {
+            var slug = document.getElementById("countrySelect").value;
+            window.location.href = "./Country.php?slug=" + slug;
+        }
+
+        function goSearchMob() {
+            var strUser = document.getElementById("countrySelectMob").value;
+
+        }
+    </script>
+
 </head>
 
 <body>
+
+    <?php
+
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://api.covid19api.com/countries",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_SSL_VERIFYHOST => 0,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_RETURNTRANSFER, 1
+        ));
+
+        $arrRes = json_decode(curl_exec($curl), true);
+
+        $country = array();
+        foreach ($arrRes as $key => $row){
+            $country[$key] = $row['Country'];
+        }
+        array_multisort($country, SORT_ASC, $arrRes);
+
+    ?>
 
     <!-- Menu qui s'ouvre et se ferme en fonction de "ouvrirFermerMenu()" -->
 	<div id="sideNavigation" class="sidenav">
@@ -47,8 +85,13 @@
         <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
         <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
         <hr>
-        <select class="barre_rechercher">
-            </option value="ANGLAIS">FRANCAIS</option>
+        <select id="countrySelectMob" class="barre_rechercher" onchange="goSearchMob()">
+            <?php
+                foreach ($arrRes as $oneCountry){
+                    echo "<option value='" . $oneCountry['Slug'] . "'>" . $oneCountry['Country'] . "</option>";
+                }
+            ?>
+
         </select>
 	</div>
 
@@ -56,8 +99,12 @@
 	<nav class="topnav">
         <!-- Menu normal pour les grands écrans -->
         <div class="menu_normal">
-            <select class="barre_rechercher">
-                <option value="ANGLAIS">FRANCAIS</option>
+            <select id="countrySelect" class="barre_rechercher" onchange="goSearch()">
+                <?php
+                    foreach ($arrRes as $oneCountry){
+                        echo "<option value='" . $oneCountry['Slug'] . "'>" . $oneCountry['Country'] . "</option>";
+                    }
+                ?>
             </select>
             <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
             <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
