@@ -27,7 +27,7 @@ $untrusted_sources = array("Jeanmarcmorandini.com");
                 <div class="col-sm-4 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $news->title ?></h5><span class="badge badge-light"><?= $news->publishedAt ?></span>
+                            <h5 class="card-title"><?= $news->title ?></h5><span class="badge badge-light"><?= date("d-m-Y H:i:s", strtotime($news->publishedAt)); ?></span>
                             <p class="card-text"><?= $news->description != null?$news->description:$news->content ?></p>
                             <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary">En savoir plus <i class="fa fa-external-link" aria-hidden="true"></i></a>
                         </div>
