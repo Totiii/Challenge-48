@@ -70,9 +70,9 @@ include 'footer.php';
                         <tr>
                             <th scope="row"><?php  print_r($i + 1) ?></th>
                             <td><?php  print_r($Countries[$i]['Country']) ?></td>
-                            <td><?php  print_r($Countries[$i]['TotalConfirmed']) ?></td>
-                            <td><?php  print_r($Countries[$i]['TotalDeaths']) ?></td>
-                            <td><?php  print_r($Countries[$i]['TotalRecovered']) ?></td>
+                            <td><?php  print_r(number_format($Countries[$i]['TotalConfirmed'],0,".",",")) ?></td>
+                            <td><?php  print_r(number_format($Countries[$i]['TotalDeaths'],0,".",",")) ?></td>
+                            <td><?php  print_r(number_format($Countries[$i]['TotalRecovered'],0,".",",")) ?></td>
                         </tr>
                     <?php } ?>
                     </tbody>
