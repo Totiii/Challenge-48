@@ -1,0 +1,191 @@
+/* ========== STYLE.CSS ========== */
+
+/* Ce fichier contient le design commun.
+
+/* ================================================================== */
+
+/* ------------- COMMUN ------------- */
+body {
+	background-color: #DDDDDD;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+}
+
+nav {
+	box-shadow: 0px 1px 1px black;
+	height: 55px;
+	color: white;
+}
+
+li {
+	list-style: none;
+}
+
+a { 
+	text-decoration: none;
+	color: black;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+hr {
+  border-color: black;
+  width: 80%;
+}
+.fa, .material-icons {
+	width: 40px;
+}
+
+/* =========================== GRAND ECRAN =========================== */
+
+/* SECTION TOUTES */
+.groupTous {
+	width: 90%;
+	padding-top: 20px;
+	padding-left: 50px;
+	padding-right: 50px;
+	margin: auto;
+}
+
+/* SECTION GAUCHE */
+.groupGauche {
+	background-color: white;
+	width: 18%;
+	margin-right: 3.5%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 3px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	float: left;
+}
+
+.groupGauche a {
+	padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.groupGauche a:hover {
+  background-color: rgba(0, 0, 0, .2);
+}
+
+/* SECTION CENTRE */
+.groupCentre {
+	width: 56%;
+	float: left;
+}
+
+.groupCentre form {
+	background-color: white;
+	margin-bottom:10px;
+	padding: 20px;
+	border-radius: 3px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.groupCentre textarea  {
+	width: 100%;
+	border: 0;
+	resize: none;
+}
+
+.groupCentre textarea:focus {
+	outline: none;
+}
+
+.groupCentre .post {
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
+
+.groupCentre .post_header {
+	border-radius: 3px 3px 0 0;
+	height: 60px;
+	line-height: 60px;
+	padding-left: 10px;
+	color: white;
+	font-size: 20px;
+}
+
+.groupCentre .post_img {
+	width: 45px;
+	height: 45px;
+	margin-right: 10px;
+	border-radius: 3px;
+}
+
+.groupCentre .post_content {
+	border-radius: 0 0 3px 3px;
+	background-color: white;
+	padding: 10px;
+}
+
+.groupCentre .btn_envoyer {
+	background-color: rgba(0, 0, 0, 0);
+	border:0;
+	font-size: 20px;
+	border-radius: 3px;
+	margin-top:-5px;
+	margin-right:-15px;
+	padding:2px;
+	float:right;
+}
+
+/* SECTION DROIT */
+.groupDroit {
+	background-color: white;
+	width: 18%;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-radius: 3px;
+	box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+	float: right;
+}
+
+.groupDroit a {
+	padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    transition: 0.3s;
+}
+
+.groupDroit a:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* =========================== ECRAN PORTABLE =========================== */
+@media screen and (max-width: 1000px) {
+	/* SECTION TOUTES */
+	.groupTous {
+		width: 100%;
+		padding: 3px;
+		margin: auto;
+	}
+
+	/* SECTION GAUCHE */
+	.groupGauche {
+		display: none;
+	}
+
+	/* SECTION CENTRE */
+	.groupCentre {
+		width: 100%;
+		padding: 3px;
+		float: left;
+	}
+
+
+	/* SECTION DROIT */
+	.groupDroit {
+		display: none;
+	}
+
+}

@@ -1,0 +1,111 @@
+/* ========== HEADER.CSS ========== */
+
+/* Ce fichier contient le design du menu.
+
+/* ================================================================== */
+
+/* -------------------------- HEADER -------------------------- */
+
+nav, .input-group-prepend span, .login_btn, .post_header {
+	background: linear-gradient(180deg, rgba(1,121,198,1) 0%, rgba(1,118,178,1) 100%);
+}
+
+/* Liens du menu HOVER */
+.sidenav a:hover, .offcanvas a:focus{
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.topnav a:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.iconHeader {
+	width:150px;
+	margin-left:3%;
+	margin-top: 10px;
+}
+
+/* Menu déroulant droit */
+.sidenav {
+  background-color: rgba(1,121,198, 0.8);
+  height: 100%; 
+  width: 0; /* Taille de départ du menu*/
+  position: fixed; /* Stay in place */
+  z-index: 1;
+  top: 55px;
+  right: 0;
+  overflow-x: hidden; /* Désactive le scrolling */
+  padding-top: 50px;
+  transition: 300ms;
+}
+
+.sidenav hr {
+  border-color:white;
+  width: 80%;
+}
+
+
+/* Div prenant la taille du body, au click permet de fermer les menus */
+.divFermeMenu {
+  position: fixed;
+  bottom: 99999px;
+  left: 0;
+  right: 0;
+  top: 55px;
+  z-index: 900;
+  transition: 300ms;
+}
+
+/* Liens du menu */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+ 
+/* Liens du menu HOVER */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+ 
+/* Bouton fermeture */
+.sidenav .closebtn {
+    position: absolute;
+    top: -10px;
+    right: 0px;
+    font-size: 36px;
+    padding-right:25px;
+    border-radius: 0 0 0 10px;
+}
+ 
+/* Menu icon Burger */
+.topnav {
+    overflow: hidden;
+}
+ 
+.topnav a {
+    float: right;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+ 
+.topnav a:hover {
+    height: 55px;
+}
+ 
+.topnav a.active {
+    color: red;
+}
+
+/* Header version Smartphone */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
