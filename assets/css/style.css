@@ -6,7 +6,8 @@
 
 /* ------------- COMMUN ------------- */
 body {
-	background-color: #DDDDDD;
+	background-color: #ffffff;
+	background-image: url("https://www.transparenttextures.com/patterns/corrugation.png");
 	padding: 0;
 	margin: 0;
 	overflow-x: hidden;
