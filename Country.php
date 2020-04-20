@@ -122,13 +122,13 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
 <div class="container mt-3">
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
-            <h1 class="display-4"><b>Situation Globale : <?= $contry_french_name ?></b> <img class="img-fluid" width="65" src="<?= $res_contry_info->flag ?>" alt="Drapeau"></h1>
-            <small>Dernière mise a jour : <?php print_r($actualCountryGlobalStats['Date']); ?></small>
-            <p class="lead mt-3">Nombres de déces: <?php print_r(number_format($actualCountryGlobalStats['TotalDeaths'],0,".",",")); ?> personnes</p>
+            <h1 class="display-4"><b>Situation globale : <?= $contry_french_name ?></b> <img class="img-fluid" width="65" src="<?= $res_contry_info->flag ?>" alt="Drapeau"></h1>
+            <small>Dernière mise a jour : <?= $actualCountryGlobalStats['Date']; ?></small>
+            <p class="lead mt-3">Nombre de décès: <b><span class="count"><?= $actualCountryGlobalStats['TotalDeaths']; ?></span></b> personnes</p>
             <hr class="my-4">
-            <p class="lead">Nombres de Cas: <?php print_r(number_format($actualCountryGlobalStats['TotalConfirmed'],0,".",",")); ?> personnes</p>
+            <p class="lead">Nombre de cas: <b><span class="count"><?= $actualCountryGlobalStats['TotalConfirmed']; ?></span></b> personnes</p>
             <hr class="my-4">
-            <p class="lead">Nombres de patients guéris: <?php print_r(number_format($actualCountryGlobalStats['TotalRecovered'],0,".",",")); ?> personnes</p>
+            <p class="lead">Nombre de patients guéris: <b><span class="count"><?= $actualCountryGlobalStats['TotalRecovered']; ?></span></b> personnes</p>
             <hr class="my-4">
         </div>
     </div>
@@ -136,11 +136,11 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
 <div class="container-fluid">
     <div class="row">
         <div class="col">
-            <h5 class="text-center">Evolution du nombres de cas : <?= $contry_french_name ?></h5>
+            <h5 class="text-center">Evolution du nombre de cas : <?= $contry_french_name ?></h5>
             <canvas id="ChartCase" class="mt-1"></canvas>
         </div>
         <div class="col mb-5">
-            <h5 class="text-center">Dernieres statistiques : <?= $contry_french_name ?></h5>
+            <h5 class="text-center">Dernières statistiques : <?= $contry_french_name ?></h5>
             <canvas id="LatestStats" class="mt-1"></canvas>
         </div>
     </div>
@@ -198,7 +198,7 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
             ?>
     <div class="alert alert-primary" role="alert">
         Aucun article de presse à propos du coronavirus en rapport avec ce pays n'a été trouvé.
-        <a href="https://google.fr/search?q=coronavirus%20en%20<?= $contry_french_name ?>" target="_blank">Rechercher sur Google</a>
+        <a href="https://google.fr/search?q=Coronavirus%20<?= $contry_french_name ?>" target="_blank">Rechercher sur Google</a>
     </div>
     <?php
         }
@@ -228,7 +228,7 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
         data: {
             labels: dates,
             datasets: [{
-                label: 'Nombres de cas',
+                label: 'Nombre de cas',
                 data: cases,
                 borderColor: [
                     'rgba(153, 102, 255, 1)',
@@ -281,7 +281,7 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
                 borderWidth: 1
             },
                 {
-                    label: 'Nombre de soignées en <?= $contry_french_name ?> ',
+                    label: 'Nombre de soignés en <?= $contry_french_name ?> ',
                     data: recovered,
                     fill: false,
                     borderColor: [
@@ -290,7 +290,7 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
                     borderWidth: 1
                 },
                 {
-                    label: 'Nombre de cas confirmer en <?= $contry_french_name ?> ',
+                    label: 'Nombre de cas confirmés en <?= $contry_french_name ?> ',
                     data: confirmed,
                     fill: false,
                     borderColor: [
@@ -309,6 +309,20 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
             }
         }
     });
+
+    $('.count').each(function () {
+        let nb = $(this).text().replace(/,/g, '');
+        $(this).prop('Counter',0).animate({
+            Counter: nb
+        }, {
+            duration: 4000,
+            easing: 'swing',
+            step: function (now) {
+                $(this).text(numberWithSpaces(Math.ceil(now)));
+            }
+        });
+    });
+
 
 </script>
 

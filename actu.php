@@ -14,6 +14,7 @@ $technology_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&cate
 $untrusted_sources = array("Jeanmarcmorandini.com");
 
 
+
 ?>
 <div class="container-fluid mt-3">
     <div class="jumbotron">

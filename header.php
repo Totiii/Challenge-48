@@ -13,7 +13,7 @@
 
   <!-- Integration des élements bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
@@ -32,6 +32,7 @@
 
   <!-- Intégrtion js personnalisé -->
   <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/tablesorter.js"></script>
 
   <!-- Intégration des icônes Font Awesome  + Material Icons -->
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -42,6 +43,10 @@
 <body>
 
     <?php
+
+        error_reporting(E_ERROR | E_PARSE);
+
+        include 'country-translate.php';
 
         $curl = curl_init();
 
@@ -60,7 +65,8 @@
         $arrRes = json_decode(curl_exec($curl), true);
 
         $country = array();
-        foreach ($arrRes as $key => $row){
+        foreach ($arrRes as $key => &$row){
+            $row['Country'] = code_to_country($row['Country']);
             $country[$key] = $row['Country'];
         }
         array_multisort($country, SORT_ASC, $arrRes);
