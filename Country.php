@@ -108,10 +108,13 @@ foreach ($arrRes3 as $key => $row){
 
 $actu_contry = $actualCountryGlobalStats['Country'];
 $actu_contry_code = $actualCountryGlobalStats["CountryCode"];
-
 $res_contry_info = curl_url("https://restcountries.eu/rest/v2/alpha/".$actu_contry_code);
 
-$contry_french_name = $res_contry_info->translations->fr;
+$contry_french_name = $actu_contry;
+if($res_contry_info->translations){
+    $contry_french_name = $res_contry_info->translations->fr;
+}
+
 $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
 $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
 
@@ -160,7 +163,7 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
         //aucun resutat fr
         $nb_to_search = 15 - $nb_result_fr;
         $actu_country_alllang = curl_url("http://newsapi.org/v2/everything?apiKey=".$apikey."&pageSize=".$nb_to_search."&sortBy=publishedAt&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$contry_name_urlencoded);
-        $nb_result_all_lg += $actu_country_alllang->totalResults;
+        $nb_result_all_lg += count($actu_country_alllang->articles);
         //var_dump($actu_country_alllang);
     }
 
@@ -170,26 +173,66 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
 
 <div class="container">
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Actualité du coronavirus en <?= $contry_french_name ?></h1>
+            <p class="lead">Article de presse en rapport avec ce pays</p>
+
+
     <?php
 
         if($nb_result_all_lg > 0){
             if($nb_result_fr > 0 ){
-                echo $nb_result_fr;
-
                 foreach ($actu_country_fr->articles as $news){
-                    echo $news->title;
-                }
+                    ?>
 
-            }else{
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="<?= $news->urlToImage ?>" class="card-img" alt="">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $news->title ?></h5>
+                                    <p class="card-text"><?= $news->description != null?$news->description:$news->content ?></p>
+                                    <p class="card-text"><span class="badge badge-secondary"><?= $news->source->name ?></span> <span class="badge badge-light"><?= date("d-m-Y H:i:s", strtotime($news->publishedAt)); ?></span>
+                                    <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary float-right">En savoir plus <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+            }else {
                 ?>
                 <div class="alert alert-primary" role="alert">
                     Aucun article de presse en français à propos du coronavirus en rapport avec ce pays n'a été trouvé.
-                    <a href="https://google.fr/search?q=coronavirus%20en%20<?= $contry_french_name ?>" target="_blank">Rechercher sur Google</a>
+                    <a href="https://google.fr/search?q=coronavirus%20en%20<?= $contry_french_name ?>" target="_blank">Rechercher
+                        sur Google</a>
                 </div>
                 <?php
             }
-            foreach ($actu_country_alllang->articles as $news){
-                echo $news->title;
+
+                foreach ($actu_country_alllang->articles as $news) {
+                    ?>
+                    <div class="card mb-3">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img src="<?= $news->urlToImage ?>" class="card-img" alt="">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $news->title ?></h5>
+                                    <p class="card-text"><?= $news->description != null?$news->description:$news->content ?></p>
+                                    <p class="card-text"><span class="badge badge-secondary"><?= $news->source->name ?></span> <span class="badge badge-light"><?= date("d-m-Y H:i:s", strtotime($news->publishedAt)); ?></span>
+                                        <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary float-right">En savoir plus <i class="fa fa-external-link" aria-hidden="true"></i></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+
             }
 
 
@@ -203,6 +246,8 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
     <?php
         }
     ?>
+        </div>
+    </div>
 
 <script>
     var dates = [];
