@@ -22,6 +22,6 @@ function goSearch() {
 }
 
 function goSearchMob() {
-    var strUser = document.getElementById("countrySelectMob").value;
+    var slug = document.getElementById("countrySelectMob").value;
     window.location.href = "./Country.php?slug=" + slug;
 }
