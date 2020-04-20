@@ -57,29 +57,32 @@ include 'footer.php';
                 <p class="text-center"> Dernière mise à jour: <?php  print_r($Countries[0]['Date']); ?></p>
             </div>
         </div>
-
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Pays</th>
-                <th scope="col">Nombres de Cas</th>
-                <th scope="col">Nombre de morts</th>
-                <th scope="col">Nombre de gueris</th>
-            </tr>
-            </thead>
-            <tbody>
-            <?php for ($i=0; $i < 20; $i++){ ?>
-            <tr>
-                <th scope="row"><?php  print_r($i + 1) ?></th>
-                <td><?php  print_r($Countries[$i]['Country']) ?></td>
-                <td><?php  print_r($Countries[$i]['TotalConfirmed']) ?></td>
-                <td><?php  print_r($Countries[$i]['TotalDeaths']) ?></td>
-                <td><?php  print_r($Countries[$i]['TotalRecovered']) ?></td>
-            </tr>
-            <?php } ?>
-            </tbody>
-        </table>
+        <div class="row">
+            <div class="col">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Pays</th>
+                        <th scope="col">Nombres de Cas</th>
+                        <th scope="col">Nombre de morts</th>
+                        <th scope="col">Nombre de gueris</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php for ($i=0; $i < 20; $i++){ ?>
+                        <tr>
+                            <th scope="row"><?php  print_r($i + 1) ?></th>
+                            <td><?php  print_r($Countries[$i]['Country']) ?></td>
+                            <td><?php  print_r($Countries[$i]['TotalConfirmed']) ?></td>
+                            <td><?php  print_r($Countries[$i]['TotalDeaths']) ?></td>
+                            <td><?php  print_r($Countries[$i]['TotalRecovered']) ?></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 
