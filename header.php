@@ -41,27 +41,30 @@
 
 <body>
 
+    <!-- Menu qui s'ouvre et se ferme en fonction de "ouvrirFermerMenu()" -->
 	<div id="sideNavigation" class="sidenav">
         <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
         <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
         <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
         <hr>
-        <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
-        <button class="btn_rechercher"><i class="fa fa-search"></i></button>
+        <select class="barre_rechercher">
+            </option value="ANGLAIS">FRANCAIS</option>
+        </select>
 	</div>
 
+    <!-- Header principal -->
 	<nav class="topnav">
+        <!-- Menu normal pour les grands écrans -->
         <div class="menu_normal">
-            <div class='search-box'>
-                <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
-                <button class="btn_rechercher"><i class="fa fa-search"></i></button>
-                <div class='result'></div>
-            </div>
+            <select class="barre_rechercher">
+                <option value="ANGLAIS">FRANCAIS</option>
+            </select>
             <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
             <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
             <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
          </div>
 
+        <!-- Menu normal pour les écrans portables -->
         <div class="menu_burger">
             <a href="#" onclick="ouvrirFermerMenu()">
                 <svg width="30" height="30" id="icoOpen">
@@ -71,7 +74,6 @@
                 </svg>
             </a>
         </div>
-       
 	</nav>
 
 <div id="divFermeMenu" class="divFermeMenu" onclick="ouvrirFermerMenu()"></div>
