@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dashboard Coronavirus</title>
+  <title>Coronavirus</title>
 
   <!-- Intégration icône du site -->
   <link rel="icon" type="image/png" href="./assets/img/logo16.png" />
@@ -21,6 +21,14 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/header.css">
 
+    <!-- Chart js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css">
+
   <!-- Intégrtion js personnalisé -->
   <script src="assets/js/scripts.js"></script>
 
@@ -30,7 +38,7 @@
 
 </head>
 
-<body> 
+<body>
 
 	<div id="sideNavigation" class="sidenav">
         <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>

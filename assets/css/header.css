@@ -150,6 +150,15 @@ nav, .input-group-prepend span, .login_btn, .post_header {
   }
 }
 
+#search{
+    background: transparent;
+    border: none;
+}
+
+#search::placeholder {
+    color: white;
+    opacity: 1; /* Firefox */
+}
 /* Header version Smartphone */
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
