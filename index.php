@@ -1,5 +1,7 @@
 <?php
 
+    include 'header.php';
+
     ini_set('memory_limit', '-1');
 
     $curl = curl_init();
@@ -20,6 +22,6 @@
 
     var_dump($arrRes);
 
-
+    include 'footer.php';
 
 ?>
