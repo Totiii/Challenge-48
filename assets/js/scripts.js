@@ -14,3 +14,14 @@ function ouvrirFermerMenu() {
     }
 
 }
+
+/* NAVIGATION VERS COUNTRY.PHP */
+function goSearch() {
+    var slug = document.getElementById("countrySelect").value;
+    window.location.href = "./Country.php?slug=" + slug;
+}
+
+function goSearchMob() {
+    var strUser = document.getElementById("countrySelectMob").value;
+    window.location.href = "./Country.php?slug=" + slug;
+}

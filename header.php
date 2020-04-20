@@ -37,18 +37,6 @@
   <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script>
-        function goSearch() {
-            var slug = document.getElementById("countrySelect").value;
-            window.location.href = "./Country.php?slug=" + slug;
-        }
-
-        function goSearchMob() {
-            var strUser = document.getElementById("countrySelectMob").value;
-
-        }
-    </script>
-
 </head>
 
 <body>
@@ -81,9 +69,9 @@
 
     <!-- Menu qui s'ouvre et se ferme en fonction de "ouvrirFermerMenu()" -->
 	<div id="sideNavigation" class="sidenav">
-        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="index.php"><i class="fa fa-tachometer"></i> Dashboard</a>
         <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
-        <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
+        <a href="prevention.php"><i class="fa fa-heartbeat"></i> Prévention</a>
         <hr>
         <select id="countrySelectMob" class="barre_rechercher" onchange="goSearchMob()">
             <?php
@@ -106,9 +94,9 @@
                     }
                 ?>
             </select>
-            <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+            <a href="index.php"><i class="fa fa-tachometer"></i> Dashboard</a>
             <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
-            <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
+            <a href="prevention.php"><i class="fa fa-heartbeat"></i> Prévention</a>
          </div>
 
         <!-- Menu normal pour les écrans portables -->
