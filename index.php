@@ -20,10 +20,6 @@ curl_setopt_array($curl, array(
 
 $arrRes = json_decode(curl_exec($curl), true);
 
-$totalDeath = $arrRes['Global']['TotalDeaths'];
-$totalCases = $arrRes['Global']['TotalConfirmed'];
-$totalRecovered = $arrRes['Global']['TotalRecovered'];
-
 $Countries = $arrRes['Countries'];
 
 $id = array();
@@ -41,11 +37,11 @@ include 'footer.php';
         <div class="jumbotron jumbotron-fluid">
             <div class="container text-center">
                 <h1 class="display-4"><b>Situation globale</b></h1>
-                <p class="lead mt-3">Nombre de décès: <?php print_r($totalDeath); ?> personnes</p>
+                <p class="lead mt-3">Nombre de décès: <?php print_r(number_format($arrRes['Global']['TotalDeaths'],0,".",",")); ?> personnes</p>
                 <hr class="my-4">
-                <p class="lead">Nombre de Cas: <?php print_r($totalCases); ?> personnes</p>
+                <p class="lead">Nombre de Cas: <?php print_r(number_format($arrRes['Global']['TotalConfirmed'],0,".",",")); ?> personnes</p>
                 <hr class="my-4">
-                <p class="lead">Nombre de patients guéris: <?php print_r($totalRecovered); ?> personnes</p>
+                <p class="lead">Nombre de patients guéris: <?php print_r(number_format($arrRes['Global']['TotalRecovered'],0,".",",")); ?> personnes</p>
                 <hr class="my-4">
             </div>
         </div>

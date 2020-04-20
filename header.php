@@ -69,9 +69,9 @@
 
     <!-- Menu qui s'ouvre et se ferme en fonction de "ouvrirFermerMenu()" -->
 	<div id="sideNavigation" class="sidenav">
-        <a href="index.php"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="./index.php"><i class="fa fa-tachometer"></i> Dashboard</a>
         <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
-        <a href="prevention.php"><i class="fa fa-heartbeat"></i> Prévention</a>
+        <a href="./prevention.php"><i class="fa fa-heartbeat"></i> Prévention</a>
         <hr>
         <select id="countrySelectMob" class="barre_rechercher" onchange="goSearchMob()">
             <?php
@@ -79,7 +79,6 @@
                     echo "<option value='" . $oneCountry['Slug'] . "'>" . $oneCountry['Country'] . "</option>";
                 }
             ?>
-
         </select>
 	</div>
 
