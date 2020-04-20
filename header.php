@@ -74,12 +74,12 @@
         <a href="prevention.php"><i class="fa fa-heartbeat"></i> Prévention</a>
         <hr>
         <select id="countrySelectMob" class="barre_rechercher" onchange="goSearchMob()">
+            <option selected>Rechercher par pays</option>
             <?php
                 foreach ($arrRes as $oneCountry){
                     echo "<option value='" . $oneCountry['Slug'] . "'>" . $oneCountry['Country'] . "</option>";
                 }
             ?>
-
         </select>
 	</div>
 
@@ -88,6 +88,7 @@
         <!-- Menu normal pour les grands écrans -->
         <div class="menu_normal">
             <select id="countrySelect" class="barre_rechercher" onchange="goSearch()">
+                <option selected>Rechercher par pays</option>
                 <?php
                     foreach ($arrRes as $oneCountry){
                         echo "<option value='" . $oneCountry['Slug'] . "'>" . $oneCountry['Country'] . "</option>";

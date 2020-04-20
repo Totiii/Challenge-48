@@ -48,7 +48,7 @@ $arrRes2 = json_decode(curl_exec($curl2), true);
 
 $date = array();
 foreach ($arrRes2 as $key => $row){
-    $date[$key] = $row['Date'];
+    $date[$key] = date("d-m-Y", strtotime($row['Date']));
 }
 
 $cases = array();
@@ -101,7 +101,7 @@ foreach ($arrRes3 as $key => $row){
 $otherDates = array();
 foreach ($arrRes3 as $key => $row){
     if ($row['Province'] == ""){
-        $otherDates[$nb] = $row['Date'];
+        $otherDates[$nb] = date("d-m-Y", strtotime($row['Date']));
         $nb += 1;
     }
 }
@@ -124,11 +124,11 @@ $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
         <div class="container text-center">
             <h1 class="display-4"><b>Situation Globale : <?= $contry_french_name ?></b></h1>
             <small>Dernière mise a jour : <?php print_r($actualCountryGlobalStats['Date']); ?></small>
-            <p class="lead mt-3">Nombres de déces: <?php print_r($actualCountryGlobalStats['TotalDeaths']); ?> personnes</p>
+            <p class="lead mt-3">Nombres de déces: <?php print_r(number_format($actualCountryGlobalStats['TotalDeaths'],0,".",",")); ?> personnes</p>
             <hr class="my-4">
-            <p class="lead">Nombres de Cas: <?php print_r($actualCountryGlobalStats['TotalConfirmed']); ?> personnes</p>
+            <p class="lead">Nombres de Cas: <?php print_r(number_format($actualCountryGlobalStats['TotalConfirmed'],0,".",",")); ?> personnes</p>
             <hr class="my-4">
-            <p class="lead">Nombres de patients guéris: <?php print_r($actualCountryGlobalStats['TotalRecovered']); ?> personnes</p>
+            <p class="lead">Nombres de patients guéris: <?php print_r(number_format($actualCountryGlobalStats['TotalRecovered'],0,".",",")); ?> personnes</p>
             <hr class="my-4">
         </div>
     </div>
@@ -220,21 +220,8 @@ $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
             datasets: [{
                 label: 'Nombres de cas',
                 data: cases,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
                     'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 1
             }]
