@@ -45,7 +45,7 @@ $arrRes2 = json_decode(curl_exec($curl2), true);
 
 $date = array();
 foreach ($arrRes2 as $key => $row){
-    $date[$key] = $row['Date'];
+    $date[$key] = date("d-m-Y", strtotime($row['Date']));
 }
 
 $cases = array();
@@ -98,7 +98,7 @@ foreach ($arrRes3 as $key => $row){
 $otherDates = array();
 foreach ($arrRes3 as $key => $row){
     if ($row['Province'] == ""){
-        $otherDates[$nb] = $row['Date'];
+        $otherDates[$nb] = date("d-m-Y", strtotime($row['Date']));
         $nb += 1;
     }
 }
@@ -128,7 +128,7 @@ include 'footer.php';
             <h5 class="text-center">Evolution du nombres de cas : <?php print_r($actualCountryGlobalStats["Country"]); ?></h5>
             <canvas id="ChartCase" class="mt-1"></canvas>
         </div>
-        <div class="col mb-5">
+        <div class="col mb-5 mt-5">
             <h5 class="text-center">Dernieres statistiques : <?php print_r($actualCountryGlobalStats["Country"]); ?></h5>
             <canvas id="LatestStats" class="mt-1"></canvas>
         </div>

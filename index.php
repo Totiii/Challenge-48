@@ -32,56 +32,54 @@ foreach ($Countries as $key => $row){
 }
 array_multisort($id, SORT_DESC, $Countries);
 
-include 'footer.php';
-
 ?>
 
-<body>
-    <div class="container mt-5">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container text-center">
-                <h1 class="display-4"><b>Situation globale</b></h1>
-                <p class="lead mt-3">Nombre de décès: <?php print_r($totalDeath); ?> personnes</p>
-                <hr class="my-4">
-                <p class="lead">Nombre de Cas: <?php print_r($totalCases); ?> personnes</p>
-                <hr class="my-4">
-                <p class="lead">Nombre de patients guéris: <?php print_r($totalRecovered); ?> personnes</p>
-                <hr class="my-4">
-            </div>
+<div class="container mt-5">
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-4"><b>Situation globale</b></h1>
+            <p class="lead mt-3">Nombre de décès: <?php print_r($totalDeath); ?> personnes</p>
+            <hr class="my-4">
+            <p class="lead">Nombre de Cas: <?php print_r($totalCases); ?> personnes</p>
+            <hr class="my-4">
+            <p class="lead">Nombre de patients guéris: <?php print_r($totalRecovered); ?> personnes</p>
+            <hr class="my-4">
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h1 class="text-center display-4"><b>Les 20 pays les plus touchés</b></h1>
-                <p class="text-center"> Dernière mise à jour: <?php  print_r($Countries[0]['Date']); ?></p>
-            </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center display-4"><b>Les 20 pays les plus touchés</b></h1>
+            <p class="text-center"> Dernière mise à jour: <?php echo date("d-m-Y H:i:s", strtotime($Countries[0]['Date'])); ?></p>
         </div>
-        <div class="row">
-            <div class="col">
-                <table class="table table-striped">
-                    <thead>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pays</th>
+                    <th scope="col">Nombre de cas contaminés</th>
+                    <th scope="col">Nombre de morts</th>
+                    <th scope="col">Nombre de guéris</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php for ($i=0; $i < 20; $i++){ ?>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Pays</th>
-                        <th scope="col">Nombre de cas contaminés</th>
-                        <th scope="col">Nombre de morts</th>
-                        <th scope="col">Nombre de guéris</th>
+                        <th scope="row"><?php  print_r($i + 1) ?></th>
+                        <td><?php  print_r($Countries[$i]['Country']) ?></td>
+                        <td><?php  print_r($Countries[$i]['TotalConfirmed']) ?></td>
+                        <td><?php  print_r($Countries[$i]['TotalDeaths']) ?></td>
+                        <td><?php  print_r($Countries[$i]['TotalRecovered']) ?></td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <?php for ($i=0; $i < 20; $i++){ ?>
-                        <tr>
-                            <th scope="row"><?php  print_r($i + 1) ?></th>
-                            <td><?php  print_r($Countries[$i]['Country']) ?></td>
-                            <td><?php  print_r($Countries[$i]['TotalConfirmed']) ?></td>
-                            <td><?php  print_r($Countries[$i]['TotalDeaths']) ?></td>
-                            <td><?php  print_r($Countries[$i]['TotalRecovered']) ?></td>
-                        </tr>
-                    <?php } ?>
-                    </tbody>
-                </table>
-            </div>
+                <?php } ?>
+                </tbody>
+            </table>
         </div>
     </div>
-</body>
+</div>
+
+<?php include 'footer.php' ?>
