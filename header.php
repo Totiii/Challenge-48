@@ -33,20 +33,20 @@
 <body> 
 
 	<div id="sideNavigation" class="sidenav">
-	  <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
-	  <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
-      <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
-      <hr>
-      <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
-      <button class="btn_rechercher"><i class="fa fa-search"></i></button>
+        <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
+        <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
+        <hr>
+        <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
+        <button class="btn_rechercher"><i class="fa fa-search"></i></button>
 	</div>
 
 	<nav class="topnav">
         <div class="menu_normal">
             <input type="text" placeholder="Chercher un pays..." maxlength="30" class="barre_rechercher" />
             <button class="btn_rechercher"><i class="fa fa-search"></i></button>
-            <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
             <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+            <a href="#"><i class="fa fa-calendar"></i> Actualités</a>
             <a href="#"><i class="fa fa-heartbeat"></i> Préventions</a>
          </div>
 

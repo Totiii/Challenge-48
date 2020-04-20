@@ -99,8 +99,10 @@ nav, .input-group-prepend span, .login_btn, .post_header {
   padding:5px;
   border-radius: 10px;
   border: 0;
-  margin-left:20px;
-  width:150px;
+  margin-top:7px;
+  margin-right:20px;
+  width:200px;
+  float: right;
 }
 
 .barre_rechercher:focus {
@@ -110,8 +112,9 @@ nav, .input-group-prepend span, .login_btn, .post_header {
 .btn_rechercher {
   background-color: rgba(0, 0, 0, 0);
   border: 0;
-  border-right: 1px solid white;
   color: white;
+  margin-top:14px;
+  float: right;
 }
 
 .menu_burger {
@@ -122,10 +125,6 @@ nav, .input-group-prepend span, .login_btn, .post_header {
 @media screen and (max-width: 950px) {
   .menu_normal {
     display: none;
-  }
-
-  .btn_rechercher {
-    border-right:0;
   }
 
   .menu_burger {
