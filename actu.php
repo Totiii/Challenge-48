@@ -56,7 +56,7 @@ $untrusted_sources = array("Jeanmarcmorandini.com");
                         <div class="card-body">
                             <h5 class="card-title"><?= $news->title ?></h5>
                             <p class="card-text"><?= $news->description != null ? $news->description : $news->content ?></p>
-                            <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary">En savoir plus <i
+                            <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary float-right">En savoir plus <i
                                     class="fa fa-external-link" aria-hidden="true"></i></a>
                         </div>
                         <?php
@@ -80,7 +80,7 @@ $untrusted_sources = array("Jeanmarcmorandini.com");
                         <div class="card-body">
                             <h5 class="card-title"><?= $news->title ?></h5>
                             <p class="card-text"><?= $news->description != null ? $news->description : $news->content ?></p>
-                            <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary">En savoir plus <i
+                            <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary float-right">En savoir plus <i
                                     class="fa fa-external-link" aria-hidden="true"></i></a>
                         </div>
                         <?php
@@ -104,7 +104,7 @@ $untrusted_sources = array("Jeanmarcmorandini.com");
                         <div class="card-body">
                             <h5 class="card-title"><?= $news->title ?></h5>
                             <p class="card-text"><?= $news->description != null ? $news->description : $news->content ?></p>
-                            <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary">En savoir plus <i
+                            <a href="<?= $news->url ?>" target="_blank" class="btn btn-primary float-right">En savoir plus <i
                                     class="fa fa-external-link" aria-hidden="true"></i></a>
                         </div>
                         <?php

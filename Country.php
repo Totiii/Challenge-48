@@ -116,7 +116,7 @@ if($res_contry_info->translations){
 }
 
 $contry_french_name_urlencoded = url_encode($res_contry_info->translations->fr);
-$contry_name_urlencoded = url_encode($res_contry_info->nativeName);
+$contry_name_urlencoded = url_encode($res_contry_info->name);
 
 ?>
 
@@ -160,11 +160,9 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
     $nb_result_all_lg = $nb_result_fr;
     //var_dump($actu_country_fr);
     if($nb_result_fr <= 10){
-        //aucun resutat fr
         $nb_to_search = 15 - $nb_result_fr;
         $actu_country_alllang = curl_url("http://newsapi.org/v2/everything?apiKey=".$apikey."&pageSize=".$nb_to_search."&sortBy=publishedAt&qinTitle=%28%20coronavirus%20OR%20covid19%20%29%20AND%20".$contry_name_urlencoded);
         $nb_result_all_lg += count($actu_country_alllang->articles);
-        //var_dump($actu_country_alllang);
     }
 
 
@@ -208,7 +206,7 @@ $contry_name_urlencoded = url_encode($res_contry_info->nativeName);
                 ?>
                 <div class="alert alert-primary" role="alert">
                     Aucun article de presse en français à propos du coronavirus en rapport avec ce pays n'a été trouvé.
-                    <a href="https://google.fr/search?q=coronavirus%20en%20<?= $contry_french_name ?>" target="_blank">Rechercher
+                    <a href="https://google.fr/search?q=Coronavirus%20<?= $contry_french_name ?>" target="_blank">Rechercher
                         sur Google</a>
                 </div>
                 <?php
