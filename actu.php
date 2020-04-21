@@ -4,8 +4,6 @@ include 'function.php';
 include 'header.php';
 
 
-
-
 $live_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=health&pageSize=6&apiKey=".$apikey."&query=coronavirus");
 $economic_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=business&apiKey=".$apikey."&pageSize=5&q=coronavirus");
 $sport_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=sports&apiKey=".$apikey."&pageSize=5&q=coronavirus");

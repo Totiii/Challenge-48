@@ -167,6 +167,10 @@ hr {
 	cursor:pointer;
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+	filter: invert(100%);
+}
 
 /* =========================== ECRAN PORTABLE =========================== */
 @media screen and (max-width: 1000px) {
