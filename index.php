@@ -43,7 +43,7 @@ $live_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=h
     <div class="container mt-5">
         <div class="jumbotron jumbotron-fluid">
             <div class="container text-center">
-                <h1 class="display-4"><b>Situation globale</b></h1>
+                <h1 class="display-4"><b>Situation globale dans le monde</b></h1>
                 <small>Dernière mise a jour : <?= date("d-m-Y H:i:s", strtotime($arrRes['Countries'][0]['Date'])); ?></small>
                 <p class="lead mt-3">Nombre de décès: <b><span class="count"><?= $arrRes['Global']['TotalDeaths']; ?></span></b> personnes</p>
                 <hr class="my-4">
@@ -86,7 +86,7 @@ $live_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=h
                 <p class="text-center"> Dernière mise à jour: <?php echo date("d-m-Y H:i:s", strtotime($Countries[0]['Date'])); ?></p>
             </div>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col">
                 <table id="countries" class="table table-striped text-center">
                     <thead>
@@ -102,7 +102,7 @@ $live_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=h
                         <?php for ($i=0; $i < 20; $i++){ ?>
                             <tr class="table-row" data-href="Country.php?slug=<?= $Countries[$i]['Slug'] ?>">
                                 <th scope="row"><?php  print_r($i + 1) ?></th>
-                                <td><?= code_to_country($Countries[$i]['Country']) ?></td>
+                                <td><a href="./Country.php?slug=<?= code_to_country($Countries[$i]['Slug']) ?>"><?= code_to_country($Countries[$i]['Country']) ?></a></td>
                                 <td><?= number_format($Countries[$i]['TotalConfirmed'],0,".","") ?></td>
                                 <td><?= number_format($Countries[$i]['TotalDeaths'],0,".","") ?></td>
                                 <td><?= number_format($Countries[$i]['TotalRecovered'],0,".","") ?></td>
