@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Coronavirus</title>
+  <title>CoroBoard</title>
 
   <!-- Intégration icône du site -->
   <link rel="icon" type="image/png" href="./assets/img/logo16.png" />
@@ -75,7 +75,7 @@
 
     <!-- Menu qui s'ouvre et se ferme en fonction de "ouvrirFermerMenu()" -->
 	<div id="sideNavigation" class="sidenav">
-        <a href="index.php"><i class="fa fa-tachometer"></i> Dashboard</a>
+        <a href="index.php"><i class="fa fa-home"></i> Accueil</a>
         <a href="./actu.php"><i class="fa fa-newspaper-o"></i> Actualités</a>
         <a href="prevention.php"><i class="fa fa-heartbeat"></i> Prévention</a>
         <hr>
@@ -101,7 +101,7 @@
                     }
                 ?>
             </select>
-            <a href="index.php"><i class="fa fa-tachometer"></i> Dashboard</a>
+            <a href="index.php"><i class="fa fa-home"></i> Accueil</a>
             <a href="./actu.php"><i class="fa fa-newspaper-o"></i> Actualités</a>
             <a href="prevention.php"><i class="fa fa-heartbeat"></i> Prévention</a>
          </div>

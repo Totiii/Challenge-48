@@ -162,6 +162,16 @@ hr {
 .groupDroit a:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.table-row{
+	cursor:pointer;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+	filter: invert(100%);
+}
+
 /* =========================== ECRAN PORTABLE =========================== */
 @media screen and (max-width: 1000px) {
 	/* SECTION TOUTES */

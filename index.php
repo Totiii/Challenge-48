@@ -2,6 +2,8 @@
 
 include 'header.php';
 
+include 'function.php';
+
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
@@ -33,6 +35,8 @@ foreach ($Countries as $key => $row){
 }
 array_multisort($id, SORT_DESC, $Countries);
 
+$live_news = curl_url("http://newsapi.org/v2/top-headlines?country=fr&category=health&pageSize=6&apiKey=".$apikey."&query=coronavirus");
+
 ?>
 
 
@@ -49,6 +53,32 @@ array_multisort($id, SORT_DESC, $Countries);
             </div>
         </div>
     </div>
+    <div id="carouselExampleControls" class="carousel slide bg-light p-4 mb-3  text-center" data-ride="carousel">
+        <div class="carousel-inner">
+            <?php
+            for ($i = 0; $i < 5; $i++){
+                if($i == 0){ ?>
+                    <div class="carousel-item active">
+                <?php } else { ?>
+                    <div class="carousel-item">
+                <?php } ?>
+                <h5 class="text-center"><?= $live_news->articles[$i]->title ?></h5>
+                        <a href="<?= $live_news->articles[$i]->url ?>" target="_blank"><img class="d-block mx-auto" src="<?= $live_news->articles[$i]->urlToImage ?>" style="height: 500px;"></a>
+
+                </div>
+            <?php } ?>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <a href="actu.php" class="btn btn-primary mt-2"><i class="fa fa-eye"></i>Voir plus d'actualités</a>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col">
@@ -70,7 +100,7 @@ array_multisort($id, SORT_DESC, $Countries);
                     </thead>
                     <tbody>
                         <?php for ($i=0; $i < 20; $i++){ ?>
-                            <tr>
+                            <tr class="table-row" data-href="Country.php?slug=<?= $Countries[$i]['Slug'] ?>">
                                 <th scope="row"><?php  print_r($i + 1) ?></th>
                                 <td><a href="./Country.php?slug=<?= code_to_country($Countries[$i]['Slug']) ?>"><?= code_to_country($Countries[$i]['Country']) ?></a></td>
                                 <td><?= number_format($Countries[$i]['TotalConfirmed'],0,".","") ?></td>
