@@ -2,7 +2,7 @@
 
 CoroBoard est un site qui informe ses utilisateurs sur le Coronavirus sur son expension dans le monde entier, par pays et fournit également des articles de presses sur ce sujet.
 
-##Documentation
+## Documentation
 
 ___
 
