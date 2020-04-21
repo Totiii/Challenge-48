@@ -6,7 +6,7 @@ CoroBoard est un site qui informe ses utilisateurs sur le Coronavirus sur son ex
 
 ___
 
-Pour consulter la documentation : `https://bit.ly/3cAY7DD`
+Pour consulter le cahier des charges, cliquez [ici !](https://bit.ly/3cAY7DD)
 
 ## Technologies utilisées
 ___
