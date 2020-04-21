@@ -162,6 +162,12 @@ hr {
 .groupDroit a:hover {
   background-color: rgba(0, 0, 0, 0.5);
 }
+
+.table-row{
+	cursor:pointer;
+}
+
+
 /* =========================== ECRAN PORTABLE =========================== */
 @media screen and (max-width: 1000px) {
 	/* SECTION TOUTES */

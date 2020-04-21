@@ -70,7 +70,7 @@ array_multisort($id, SORT_DESC, $Countries);
                     </thead>
                     <tbody>
                         <?php for ($i=0; $i < 20; $i++){ ?>
-                            <tr>
+                            <tr class="table-row" data-href="Country.php?slug=<?= $Countries[$i]['Slug'] ?>">
                                 <th scope="row"><?php  print_r($i + 1) ?></th>
                                 <td><?= code_to_country($Countries[$i]['Country']) ?></td>
                                 <td><?= number_format($Countries[$i]['TotalConfirmed'],0,".","") ?></td>
