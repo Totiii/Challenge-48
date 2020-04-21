@@ -6,7 +6,7 @@
   <title>CoroBoard</title>
 
   <!-- Intégration icône du site -->
-  <link rel="icon" type="image/png" href="./assets/img/logo16.png" />
+  <link rel="icon" type="image/png" href="./assets/img/favicon.ico" />
 
   <!-- Integration de la detection d'écran portable [Responsive] -->
   <meta name="viewport" content="width=device-width, user-scalable=no">
