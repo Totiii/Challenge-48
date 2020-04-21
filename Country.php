@@ -126,7 +126,7 @@ $contry_name_urlencoded = url_encode($res_contry_info->name);
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
             <h1 class="display-4"><b>Situation globale : <?= $contry_french_name ?></b> <img class="img-fluid" width="65" src="<?= $res_contry_info->flag ?>" alt="Drapeau"></h1>
-            <small>Dernière mise a jour : <?= $actualCountryGlobalStats['Date']; ?></small>
+            <small>Dernière mise a jour : <?= date("d-m-Y H:i:s", strtotime($actualCountryGlobalStats['Date'])); $actualCountryGlobalStats['Date']; ?></small>
             <p class="lead mt-3">Nombre de décès: <b><span class="count"><?= $actualCountryGlobalStats['TotalDeaths']; ?></span></b> personnes</p>
             <hr class="my-4">
             <p class="lead">Nombre de cas: <b><span class="count"><?= $actualCountryGlobalStats['TotalConfirmed']; ?></span></b> personnes</p>
